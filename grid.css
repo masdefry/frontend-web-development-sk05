@@ -1,0 +1,42 @@
+#wrapper-01 {
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+#wrapper-01 > div:nth-child(even) {
+  background-color: salmon;
+}
+
+#wrapper-01 > div:nth-child(odd) {
+  background-color: palegoldenrod;
+}
+
+#wrapper-02 {
+  margin-top: 550px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#wrapper-02 > div:nth-child(even) {
+  background-color: bisque;
+}
+
+#wrapper-02 > div:nth-child(odd) {
+  background-color: burlywood;
+}
+
+#wrapper-02 > div:nth-child(1) {
+  /* 1/7: Merge column 1-6 */
+  grid-column: 1/7;
+}
+
+#wrapper-02 > div:nth-child(2) {
+  grid-column: 7/13;
+}
+
+#wrapper-02 > div:nth-child(n+3):nth-child(-n+5) {
+  grid-column: span 2;
+}

@@ -1,0 +1,26 @@
+#wrapper-01 {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#wrapper-01 > div:nth-child(1) {
+  grid-column: span 3;
+  background-color: salmon;
+}
+
+#wrapper-01 > div:nth-child(2) {
+  grid-column: span 1;
+  background-color: yellow;
+}
+
+#wrapper-01 > div:nth-child(3) {
+  grid-column: span 2;
+  background-color: green;
+}
+
+#wrapper-01 > div:nth-child(4){
+  grid-column: span 3;
+  background-color: bisque;
+}
