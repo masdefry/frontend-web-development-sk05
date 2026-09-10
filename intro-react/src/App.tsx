@@ -1,35 +1,17 @@
-import { Button } from '@/components/ui/button';
-import { Spinner } from '@/components/ui/spinner';
-import { Link } from 'react-router-dom';
+import { HiMenuAlt3 } from "react-icons/hi";
 
 function App() {
   return (
     <>
-      <h1 className='text-[120px] text-yellow-500'>Hello World!</h1>
-      <p className='text-[#E2B4BD]'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dolore
-        dicta rem iusto illum ad magnam! Laudantium accusantium blanditiis vel
-        est neque aut, inventore alias? Odio vitae consequuntur modi ea.
-      </p>
-      <div className='grid grid-cols-3 gap-10'>
-        <div className='bg-gray-100'>1</div>
-        <div className='bg-red-100'>2</div>
-        <div className='bg-yellow-100'>3</div>
-        <div className='bg-gray-100'>1</div>
-        <div className='bg-red-100'>2</div>
-        <div className='bg-yellow-100'>3</div>
+      <button className='btn btn-soft btn-error'>Error</button>
+      <div className='join grid grid-cols-2'>
+        <button className='join-item btn btn-outline'>Previous page</button>
+        <button className='join-item btn btn-outline'>Next</button>
       </div>
-      <div className='flex justify-center'>
-        <h1 className='text-9xl'>Promo Buy 1 Get 1</h1>
-      </div>
-      <Button variant='secondary' disabled>
-        Downloading
-        <Spinner data-icon='inline-start' />
-      </Button>
-      <Link to={'/profile'}>Go to Profile Page</Link>
-      <Link to={'/detail-product/sepatu-futsal-kw'}>
-        Go to Detail Product Page
-      </Link>
+      <HiMenuAlt3 className="text-3xl text-red-500" />
+      <h1 className="text-blue-500 bg-blue-100 md:text-yellow-700 md:bg-yellow-100">
+        Typescript
+      </h1>
     </>
   );
 }
