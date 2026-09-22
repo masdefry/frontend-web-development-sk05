@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RegisterPage from './pages/register/index.tsx';
 import ProductsPage from './pages/products/index.tsx';
 import ProfilePage from './pages/profile/index.tsx';
+import TodosPages from './pages/todos/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/products' element={<ProductsPage />} />
       <Route path='/profile' element={<ProfilePage /> } /> 
+      <Route path='/todos' element={<TodosPages />} />
     </Routes>
   </BrowserRouter>,
 );
