@@ -4,16 +4,19 @@ import { HiXMark } from 'react-icons/hi2';
 interface Todo {
   id: number;
   title: string;
+  isCompleted: boolean;
 }
 export default function TodosPages() {
   const [todos, setTodos] = useState<Todo[]>([
     {
       id: 1,
       title: 'Makan malam',
+      isCompleted: false,
     },
     {
       id: 2,
       title: 'Belajar pemrograman Javascript',
+      isCompleted: false,
     },
   ]);
   const inputTodo = useRef<HTMLInputElement>(null);
@@ -34,6 +37,7 @@ export default function TodosPages() {
       currentTodos?.push({
         id: currentTodos?.length + 1,
         title: newTodo,
+        isCompleted: false,
       });
       setTodos(currentTodos);
 
@@ -41,12 +45,26 @@ export default function TodosPages() {
     }
   };
 
-  const handleDeleteTodo = (id: number) => { 
-    const newTodos = todos?.filter(item => {
-        if(item?.id !== id) return item
-    }); 
-    setTodos(newTodos); 
-  }
+  const handleDeleteTodo = (id: number) => {
+    const newTodos = todos?.filter((item) => {
+      if (item?.id !== id) return item;
+    });
+    setTodos(newTodos);
+  };
+
+  const handleCompletedTodo = (id: number) => {
+    const newTodos = todos?.map((item) => {
+      if (item?.id === id) {
+        return {
+          ...item,
+          isCompleted: !item?.isCompleted,
+        };
+      } else {
+        return item;
+      }
+    });
+    setTodos(newTodos);
+  };
 
   return (
     <>
@@ -72,9 +90,10 @@ export default function TodosPages() {
                   <input
                     type='checkbox'
                     className='checkbox checkbox-md rounded-full'
+                    onChange={() => handleCompletedTodo(item?.id)}
                   />
                   <span>{item?.id}</span>
-                  <span>{item?.title}</span>
+                  <span className={`${item?.isCompleted === true? 'line-through':''}`}>{item?.title}</span>
                 </div>
                 <HiXMark onClick={() => handleDeleteTodo(item?.id)} />
               </div>
