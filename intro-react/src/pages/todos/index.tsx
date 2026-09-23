@@ -66,6 +66,17 @@ export default function TodosPages() {
     setTodos(newTodos);
   };
 
+  const handleClearCompletedTodo = () => {
+    const newTodos = todos?.map((item) => {
+      return {
+        ...item,
+        isCompleted: false,
+      };
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <>
       <div className='bg-[url(background01.jpg)] h-[300px] bg-cover flex flex-col items-center'>
@@ -91,9 +102,14 @@ export default function TodosPages() {
                     type='checkbox'
                     className='checkbox checkbox-md rounded-full'
                     onChange={() => handleCompletedTodo(item?.id)}
+                    checked={item?.isCompleted}
                   />
                   <span>{item?.id}</span>
-                  <span className={`${item?.isCompleted === true? 'line-through':''}`}>{item?.title}</span>
+                  <span
+                    className={`${item?.isCompleted === true ? 'line-through' : ''}`}
+                  >
+                    {item?.title}
+                  </span>
                 </div>
                 <HiXMark onClick={() => handleDeleteTodo(item?.id)} />
               </div>
@@ -107,7 +123,7 @@ export default function TodosPages() {
                 <span>Active</span>
                 <span>Completed</span>
               </div>
-              <button>Clear Completed</button>
+              <button onClick={handleClearCompletedTodo}>Clear Completed</button>
             </div>
           </div>
         </div>
