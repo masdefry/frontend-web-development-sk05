@@ -7,6 +7,7 @@ import ProductsPage from './pages/products/index.tsx';
 import ProfilePage from './pages/profile/index.tsx';
 import TodosPages from './pages/todos/index.tsx';
 import ProductsManagementPage from './pages/products-management/index.tsx';
+import CreateProduct from './pages/products-management/create/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/profile' element={<ProfilePage />} />
       <Route path='/todos' element={<TodosPages />} />
       <Route path='/products-management' element={<ProductsManagementPage />} />
+      <Route path='/products-management/create' element={<CreateProduct />} />
     </Routes>
   </BrowserRouter>,
 );
