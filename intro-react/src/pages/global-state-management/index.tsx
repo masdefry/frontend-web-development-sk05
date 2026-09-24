@@ -7,7 +7,7 @@ export default function GlobalStateManagementPage() {
 
   const handleInput = () => {
     console.log(inputSomething.current!.value); 
-    setAnything(inputSomething.current!.value); 
+    setAnything(inputSomething?.current!.value); 
   };
 
   return (

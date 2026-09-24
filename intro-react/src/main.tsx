@@ -11,11 +11,13 @@ import CreateProduct from './pages/products-management/create/index.tsx';
 import NewTodosPages from './pages/new-todos/index.tsx';
 import GlobalStateManagementPage from './pages/global-state-management/index.tsx';
 import Layout from './layout.tsx';
+import LoginPage from './pages/login/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <Routes>
       <Route path='/register' element={<RegisterPage />} />
+      <Route path='/login' element={<LoginPage />} />
       <Route element={<Layout />}>
         <Route index element={<App />} />
         <Route path='/products' element={<ProductsPage />} />
