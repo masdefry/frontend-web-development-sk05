@@ -123,7 +123,9 @@ export default function TodosPages() {
                 <span>Active</span>
                 <span>Completed</span>
               </div>
-              <button onClick={handleClearCompletedTodo}>Clear Completed</button>
+              <button onClick={handleClearCompletedTodo}>
+                Clear Completed
+              </button>
             </div>
           </div>
         </div>

@@ -6,16 +6,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function LoginPage() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<LoginRequest>({
     resolver: zodResolver(loginSchema),
   });
+  const navigate = useNavigate();
+  const {setUsername} =  useAuthStore()
 
   const handleLogin = async (data: LoginRequest) => {
     try {
@@ -26,8 +29,10 @@ export default function LoginPage() {
           password: data?.password,
         },
       );
-      console.log(res);
+
+      setUsername(res?.data?.username);
       toast.success('Login user successful');
+      navigate('/todos');
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +51,7 @@ export default function LoginPage() {
               placeholder='Type your email'
               {...register('email')}
             />
-            <p>{errors?.email?.message}</p>
+            <p className='text-red-500'>{errors?.email?.message}</p>
           </fieldset>
           <fieldset className='fieldset'>
             <legend className='fieldset-legend'>Password</legend>
@@ -56,7 +61,7 @@ export default function LoginPage() {
               placeholder='Type your password'
               {...register('password')}
             />
-            {errors?.password?.message}
+            <p className='text-red-500'>{errors?.password?.message}</p>
           </fieldset>
           <button className='btn btn-success mt-3 w-full'>Login</button>
         </form>

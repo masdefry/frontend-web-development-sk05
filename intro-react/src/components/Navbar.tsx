@@ -1,11 +1,11 @@
-import { useAnythingStore } from "@/stores/useAnythingStore";
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function Navbar() {
-  const {anything} = useAnythingStore(); 
+  const { username } = useAuthStore();
   return (
     <div className='navbar bg-base-100 shadow-sm'>
       <a className='btn btn-ghost text-xl'>daisyUI</a>
-      {anything}
+      {username}
     </div>
   );
 }
