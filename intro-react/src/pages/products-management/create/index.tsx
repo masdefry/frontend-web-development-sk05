@@ -43,7 +43,9 @@ export default function CreateProduct() {
   };
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position='top-center'
+      />
       <div className='flex flex-col items-center pt-10'>
         <h1 className='text-xl font-bold'>FORM CREATE PRODUCT</h1>
         <form
