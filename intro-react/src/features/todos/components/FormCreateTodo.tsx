@@ -7,7 +7,11 @@ import {
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-export default function FormCreateTodo() {
+interface FormCreateTodoProps {
+  getTodos: () => void; 
+}
+
+export default function FormCreateTodo({getTodos}: FormCreateTodoProps) {
   const {
     register,
     handleSubmit,
@@ -24,6 +28,7 @@ export default function FormCreateTodo() {
         data,
       );
       toast.success('Create todo successful');
+      getTodos(); 
       reset();
     } catch (error) {
       console.log(error);
